@@ -8,6 +8,7 @@
 
 	<meta name="description" content="The LDS Standard Works, Mapped" />
 	<meta name="author" content="Misha Milovidov" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 	<link rel="icon" type="image/png" href="/images/byu-logo.png">
 	<link rel="shortcut icon" href="/images/byu-logo.png" type="image/png" />
@@ -15,6 +16,9 @@
 
 	<!--custom css-->
 	<link rel="stylesheet" href="css/styles.css?v=1.0" type="text/css" />
+	
+	<!--vendor js-->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 	<!--custom js-->
 	<script type="text/javascript" src="js/scriptures.js"></script>
@@ -65,6 +69,9 @@
 				center: jerusalem
 			});
 		}
+		
+		$('html').fadeOut(1);
+    	$('html').fadeIn(1000);
 	</script>
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbZ9tqeOrG2Siid6t_6XMpgAStk07bleg&callback=initMap">
 	</script>

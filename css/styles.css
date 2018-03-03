@@ -2,6 +2,8 @@ html {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    line-height: 1.5;
+    font-family: "Roboto", sans-serif;
 }
 
 body {
@@ -49,24 +51,30 @@ img {
 #crumb {
     padding-left: 1.25em;
     order: -1;
+    flex: 1 1 30%;
 }
 
 #centerhead {
     display: flex;
-    flex: 1;
+    flex: 1 1 70%;
     justify-content: center;
     font-weight: normal;
     text-align: center;
     flex-direction: column;
 }
 
-div.title {
+#centerhead #title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.title {
     display: block;
     font-size: larger;
     font-weight: bolder;
 }
 
-div.subtitle {
+.subtitle {
     display: block;
     font-size: smaller;
 }
@@ -115,22 +123,23 @@ div.books {
 }
 
 div.books a {
-    flex: 0 0 7em;
+    flex: 0 0 6em;
     font-weight: normal;
     margin: .4em;
     padding-left: .5em;
     padding-right: .5em;
-    background-color: #fff;
+    background-color: hsla(0,0%,100%,.65);
     color: #222;
 }
 
-div.books a.chapter {
+.books .chapter {
     flex: 0 0 4em;
 }
 
 .volume h5 {
     font-size: 1.24rem;
     margin: 0.72rem 0 0.556rem 0;
+    text-align: center;
 }
 
 .books li {
@@ -152,6 +161,19 @@ div.books a.chapter {
     border: solid 5px;
 }
 
+.btn {
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: .5px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+    border: none;
+    border-radius: 2px;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 2rem;
+    text-transform: uppercase;
+}
+
 #crumb ul {
     padding: 0;
     margin: 0;
@@ -163,6 +185,7 @@ div.books a.chapter {
     margin: 0;
     list-style: none;
     display: inline-block;
+    text-decoration: underline;
 }
 
 #header a:link,
@@ -178,11 +201,11 @@ div.books a.chapter {
 }
 
 #crumb li:not(:first-child)::before {
-    content: ">";
+    content: "|";
     padding: .3em;
 }
 
-div.text {
+.text {
     padding: 1em;
     font-weight: normal;
     font-size: 12pt;
@@ -199,20 +222,21 @@ div.text {
     font-weight: normal;
     background-color: white;
     padding-bottom: 3rem;
+    opacity: 1;
 }
 
-div.chapterheading {
+.chapterheading {
     font-size: 14pt;
     font-weight: bold;
     padding: .5em;
     text-align: center;
 }
 
-div.chapterheading b.big {
+.chapterheading .big {
     font-size: 140%;
 }
 
-div.navheading {
+.navheading {
     font-size: 13pt;
     text-align: center;
     display: flex;
@@ -222,7 +246,6 @@ div.navheading {
 
 #scriptures ul.versesblock {
     margin: 0;
-    line-height: auto;
     list-style: none;
     padding: 1em;
     padding-left: 1.5em;
@@ -236,11 +259,11 @@ ul.versesblock li {
     margin-bottom: .3em;
 }
 
-ul.versesblock li.sectionHeader {
+.versesblock .sectionHeader {
     font-style: italic;
 }
 
-span.verse {
+.verse {
     padding-left: .4em;
     padding-right: .3em;
 }
@@ -263,7 +286,7 @@ span.verse {
     color: #ffffff;
     text-decoration: none;
     background: #3f2000;
-    padding: 2px 5px;
+    padding: 5px 5px;
     border-radius: 4px;
 }
 
@@ -274,18 +297,60 @@ span.verse {
 
 .navheading .next {
     position: absolute;
-    right: 2.5em;
-    bottom: 1em;
+    left: 2.3em;
+    bottom: .5em;
     z-index: 100;
 }
 
 .navheading .prev {
     position: absolute;
-    left: 1em;
-    bottom: 1em;
+    left: .5em;
+    bottom: .5em;
     z-index: 100;
 }
 
-li.match {
+.match {
     background-color: #ffffcc;
+}
+
+@media all and (max-width: 629px) {
+    #header {
+        flex-direction: column;
+    }
+    
+    #crumb {
+        order: 2;
+        flex: 1 1 100%;
+    }
+    
+    #centerhead {
+        order: -1;
+        flex: 1 1 100%;
+        margin-top: 5px;
+    }
+    
+    #centerhead #subtitle {
+        display: none;
+    }
+    
+    #content {
+        flex-direction: column;
+    }
+  
+    #scriptures {
+        min-width: 100%;
+        max-width: 100%;
+        flex: 1 1 100%;
+        height: 50%;
+        min-height: 50%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        position: relative;
+        order: 2;
+    }
+  
+    #map {
+        flex: 1 1 100%;
+        order: 1;
+    }
 }
