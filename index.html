@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<title>The Scriptures, Mapped</title>
+
+	<meta name="description" content="The LDS Standard Works, Mapped" />
+	<meta name="author" content="Misha Milovidov" />
+
+	<link rel="icon" type="image/png" href="/images/byu-logo.png">
+	<link rel="shortcut icon" href="/images/byu-logo.png" type="image/png" />
+	<link rel="apple-touch-icon" href="/images/byu-logo.png" type="image/png" />
+
+	<!--custom css-->
+	<link rel="stylesheet" href="css/styles.css?v=1.0" type="text/css" />
+
+	<!--custom js-->
+	<script type="text/javascript" src="js/scriptures.js"></script>
+</head>
+
+<body>
+
+	<div id="header">
+
+		<div id="crumb"></div>
+		<div id="centerhead">
+			<div id="title">The Scriptures, Mapped</div>
+			<div id="subtitle">Misha Milovidov</div>
+		</div>
+	</div>
+	<div id="content">
+		<div id="nextprev"></div>
+		<div id="scriptures"></div>
+		<div id="map"></div>
+	</div>
+
+	<script type="text/javascript">
+		/*global google, Scriptures*/
+
+		function ready(eventHandler) {
+			if (document.attachEvent ? document.readyState === "complete" :
+				document.readyState !== "loading") {
+				eventHandler();
+			} else {
+				document.addEventListener('DOMContentLoaded', eventHandler);
+			}
+		}
+
+		ready(function () {
+			window.addEventListener("hashchange", Scriptures.onHashChanged);
+			Scriptures.init(Scriptures.onHashChanged);
+		});
+
+		let map;
+
+		function initMap() {
+			let jerusalem = {
+				lat: 31.7964452,
+				lng: 35.1051471
+			};
+			map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 5,
+				center: jerusalem
+			});
+		}
+	</script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbZ9tqeOrG2Siid6t_6XMpgAStk07bleg&callback=initMap">
+	</script>
+</body>
+
+</html>
